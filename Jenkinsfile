@@ -8,6 +8,7 @@ def execute() {
         gitlabBuilds(builds: ['build', 'test']) {
             stage('build') {
                 gitlabCommitStatus('build') {
+                    sh "echo  build "
                     sh "mvn clean package -DskipTests -DgitRevision=$revision"
                 }
             }
